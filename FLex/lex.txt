@@ -1,0 +1,15 @@
+Save the above code into a file named lexer.l
+Open a terminal and navigate to the directory containing lexer.l
+Compile the Flex program using the flex command:
+
+flex lexer.l
+This command will generate a C file named lex.yy.c.
+
+4. Compile the generated C file using your C compiler (e.g., gcc):
+
+gcc lex.yy.c -o lexer -ll
+
+Run the compiled executable:
+bash
+Copy code
+./lexer
