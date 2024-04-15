@@ -3,59 +3,56 @@ package SimpJva;
 import java.util.Scanner;
 
 public class calculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) {
 
-        System.out.println("Welcome to Calculator!");
-        System.out.println("Enter an expression (e.g., 5 + 3):");
+    char operator;
+    Double number1, number2, result;
 
-        // Read the expression from the user
-        String input = scanner.nextLine();
+    // create an object of Scanner class
+    Scanner input = new Scanner(System.in);
 
-        // Split the input string by whitespace7
-        String[] tokens = input.split("\\s+");
+    // ask users to enter operator
+    System.out.println("Choose an operator: +, -, *, or /");
+    operator = input.next().charAt(0);
 
-        if (tokens.length != 3) {
-            System.out.println("Invalid input format. Please enter an expression like '5 + 3'.");
-            return;
-        }
+    // ask users to enter numbers
+    System.out.println("Enter first number");
+    number1 = input.nextDouble();
 
-        // Parse the operands and operator
-        double operand1, operand2, result;
-        try {
-            operand1 = Double.parseDouble(tokens[0]);
-            operand2 = Double.parseDouble(tokens[2]);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid operands. Please enter numeric values.");
-            return;
-        }
+    System.out.println("Enter second number");
+    number2 = input.nextDouble();
 
-        String operator = tokens[1];
+    switch (operator) {
 
-        // Perform the calculation based on the operator
-        switch (operator) {
-            case "+":
-                result = operand1 + operand2;
-                break;
-            case "-":
-                result = operand1 - operand2;
-                break;
-            case "*":
-                result = operand1 * operand2;
-                break;
-            case "/":
-                if (operand2 == 0) {
-                    System.out.println("Division by zero is not allowed.");
-                    return;
-                }
-                result = operand1 / operand2;
-                break;
-            default:
-                System.out.println("Invalid operator. Please use '+', '-', '*', or '/'.");
-                return;
-        }
+      // performs addition between numbers
+      case '+':
+        result = number1 + number2;
+        System.out.println(number1 + " + " + number2 + " = " + result);
+        break;
 
-        // Print the result
-        System.out.println("Result: " + result);
+      // performs subtraction between numbers
+      case '-':
+        result = number1 - number2;
+        System.out.println(number1 + " - " + number2 + " = " + result);
+        break;
+
+      // performs multiplication between numbers
+      case '*':
+        result = number1 * number2;
+        System.out.println(number1 + " * " + number2 + " = " + result);
+        break;
+
+      // performs division between numbers
+      case '/':
+        result = number1 / number2;
+        System.out.println(number1 + " / " + number2 + " = " + result);
+        break;
+
+      default:
+        System.out.println("Invalid operator!");
+        break;
     }
+
+    input.close();
+  }
 }
